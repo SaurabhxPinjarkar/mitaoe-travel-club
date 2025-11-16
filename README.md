@@ -1,4 +1,6 @@
-# MITAOE Travel Club · Travel Places Project
+git branch -M main
+git remote add origin https://github.com/<YOUR_USERNAME>/mitaoe-travel-club.gitgit branch -M main
+git remote add origin https://github.com/<YOUR_USERNAME>/mitaoe-travel-club.git# MITAOE Travel Club · Travel Places Project
 
 A single-page web project created by MITAOE students to showcase our favourite getaway ideas. Built with [Vite](https://vitejs.dev/) and vanilla JavaScript, it keeps things simple—filters, cards, and notes we actually use when planning semester breaks.
 
