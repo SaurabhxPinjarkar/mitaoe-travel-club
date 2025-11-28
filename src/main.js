@@ -252,10 +252,10 @@ app.innerHTML = `
   <div class="page">
     <header class="hero">
       <nav class="nav container">
-        <div class="brand">
-          <span class="brand__mark">MT</span>
+          <div class="brand">
+          <span class="brand__mark">FM</span>
           <div>
-            <p class="brand__name">MITAOE Travel Club</p>
+            <p class="brand__name">FindMyTrip</p>
             <p class="brand__tagline">Student-curated journeys</p>
           </div>
         </div>
