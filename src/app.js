@@ -1,5 +1,12 @@
 import './app.css'
 
+const groupMembers = [
+  { name: 'Saurabh Pinjarkar' },
+  { name: 'Prajakta More' },
+  { name: 'Atharva Rajandekar' },
+  { name: 'Vaibhav Gorme' }
+]
+
 const heroStats = [
   { label: 'Weekend loops planned', value: '18' },
   { label: 'Friends who voted', value: '42' },
@@ -217,6 +224,10 @@ const microAdventures = [
   }
 ]
 
+const memberChip = (member) => `
+  <span class="squad-chip">${member.name}</span>
+`
+
 const statCard = (stat) => `
   <article class="stat">
     <p class="stat__value">${stat.value}</p>
@@ -314,42 +325,73 @@ const app = document.querySelector('#app')
 app.innerHTML = `
   <div class="page">
     <header class="hero">
+      <div class="hero__banner">
+        <div class="container hero__banner-content">
+          <div class="hero__banner-brand">
+            <span class="hero__banner-label">PlanMyTrip</span>
+          </div>
+          <div class="hero__banner-names" aria-label="PlanMyTrip team">
+            ${groupMembers.map(memberChip).join('')}
+          </div>
+        </div>
+      </div>
       <nav class="nav container">
         <div class="brand">
           <span class="brand__mark">FM</span>
           <div>
             <p class="brand__name">FindMyTrip</p>
-            <p class="brand__tagline">Weekends planned by MITAOE students</p>
+            <p class="brand__tagline">Recommendation studio by MITAOE students</p>
           </div>
         </div>
-        <a class="btn btn--ghost" href="#featured">See plans</a>
+        <a class="btn btn--ghost" href="#featured">See all plans</a>
       </nav>
 
       <div class="hero__content container">
         <div class="hero__text">
-          <p class="eyebrow">Mini project · 2025</p>
-          <h1>Smart recommendations by budget, location, and mood.</h1>
+          <span class="pill hero__badge">Budget + location aware</span>
+          <h1>Plan-worthy recommendations crafted by our travel club.</h1>
           <p>
-            Toggle filters, study real costs, and grab micro-adventures from one page before you pitch the plan to
-            parents or project teammates.
+            Swap between coasts, hills, islands, or dream itineraries while seeing real spends, travel modes,
+            and checklist notes before you even ping the group chat.
           </p>
+          <ul class="hero__list">
+            <li><strong>Filters:</strong> Coast + budget combos respond instantly.</li>
+            <li><strong>Money math:</strong> Budget planner spells out travel, stay, extras.</li>
+            <li><strong>Quick swaps:</strong> Micro adventures fill 24–72 hour gaps.</li>
+          </ul>
           <div class="hero__actions">
-            <button class="btn btn--primary" id="browseDestinations">Browse escapes</button>
-            <button class="btn btn--link" id="scrollTips">Open checklists</button>
+            <button class="btn btn--primary" id="browseDestinations">Plan a weekend</button>
+            <button class="btn btn--link" id="scrollTips">Jump to checklist</button>
           </div>
           <div class="hero__stats">
             ${heroStats.map(statCard).join('')}
           </div>
         </div>
-        <div class="hero__card">
-          <p class="pill">This weekend idea</p>
+        <div class="hero__panel hero__card">
+          <div class="hero__panel-header">
+            <p class="pill pill--dark">Live shortlist</p>
+            <span>Weekend focus · Chill coast loop</span>
+          </div>
           <h3>Konkan rail loop</h3>
-          <p>₹8.5k · 3 friends · light backpacks</p>
-          <ul>
-            <li>Leave Friday 6 PM · Pune to Kudal</li>
-            <li>Stay at beach hostel · ₹800 a night</li>
-            <li>Return Sunday 4 PM sleeper</li>
-          </ul>
+          <p class="hero__panel-budget">₹8.5k average · 3 days · group of 4</p>
+          <div class="hero__panel-list">
+            <div>
+              <p class="hero__panel-label">Travel</p>
+              <p>Leave Friday 6 PM · Pune → Kudal sleeper · seats booked in one tap.</p>
+            </div>
+            <div>
+              <p class="hero__panel-label">Stay</p>
+              <p>Beach hostel dorms · ₹800 a night · breakfast + scooter rentals.</p>
+            </div>
+            <div>
+              <p class="hero__panel-label">Flow</p>
+              <p>Saturday cafe hop, sunset reels, Sunday brunch then ride back by 4 PM.</p>
+            </div>
+          </div>
+          <div class="hero__panel-footer">
+            <p class="hero__panel-label">Why it works</p>
+            <p>Low travel fatigue, transparent costs, and easy approvals for parents + mentors.</p>
+          </div>
         </div>
       </div>
     </header>

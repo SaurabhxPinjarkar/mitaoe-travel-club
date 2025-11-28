@@ -8,6 +8,8 @@
   --color-border: #e4e6ed;
   --color-accent: #2563eb;
   --color-accent-soft: #e0e7ff;
+  --color-midnight: #0f172a;
+  --color-midnight-soft: #1f2937;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -46,8 +48,57 @@ p {
 }
 
 .hero {
-  background: linear-gradient(135deg, #eef2ff, #fafaf5);
-  padding: 2rem 0 3rem;
+  background: linear-gradient(180deg, #0b1222 0%, #eef2ff 50%, #fafaf5 100%);
+  padding: 0 0 3rem;
+}
+
+.hero__banner {
+  background: linear-gradient(120deg, #0c1425, #151f34);
+  color: #f8fafc;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+}
+
+.hero__banner-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.hero__banner-brand {
+  display: flex;
+  align-items: center;
+}
+
+.hero__banner-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.hero__banner-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: flex-end;
+}
+
+.squad-chip {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .nav {
@@ -133,6 +184,24 @@ p {
   color: var(--color-muted);
 }
 
+.hero__badge {
+  margin-bottom: 0.6rem;
+}
+
+.hero__list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: var(--color-muted);
+}
+
+.hero__list li strong {
+  color: var(--color-ink);
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -172,9 +241,61 @@ p {
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
 
-.hero__card ul {
-  padding-left: 1.1rem;
-  color: var(--color-muted);
+.hero__panel {
+  background: var(--color-midnight);
+  color: #e2e8f0;
+  border-color: #151f32;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero__panel h3 {
+  margin: 0;
+  color: #f8fafc;
+}
+
+.hero__panel-budget {
+  color: #cbd5f5;
+  margin: 0;
+}
+
+.hero__panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  color: #cbd5f5;
+}
+
+.hero__panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero__panel-list div {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+
+.hero__panel-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-bottom: 0.2rem;
+}
+
+.hero__panel-footer {
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+}
+
+.pill--dark {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
 .pill {
