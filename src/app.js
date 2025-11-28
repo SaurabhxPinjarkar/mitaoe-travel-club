@@ -15,6 +15,8 @@ const destinations = [
     blurb: 'Two-night plan with sunrise cycles and sunset cafés that still fit a student budget.',
     travel: 'Sleeper bus · ₹9k per person',
     link: 'Konkan rail + scooty rentals',
+    season: 'Nov - Feb',
+    duration: '3 days',
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'
   },
   {
@@ -25,6 +27,8 @@ const destinations = [
     blurb: 'Slow mornings, digital-detox afternoons, and a checklist that convinces parents easily.',
     travel: 'Train + Volvo · ₹12k per person',
     link: 'Shareable Notion itinerary',
+    season: 'Mar - Jun',
+    duration: '5 days',
     image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80'
   },
   {
@@ -35,6 +39,8 @@ const destinations = [
     blurb: 'Golden-hour ruin sketches, coracle rides, and ₹70 thalis after long cycling loops.',
     travel: 'Overnight bus · ₹7k per person',
     link: 'Google My Maps pins',
+    season: 'Dec - Feb',
+    duration: '4 days',
     image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80'
   },
   {
@@ -45,7 +51,57 @@ const destinations = [
     blurb: 'Monsoon hikes, Dawki kayaks, and clean-stay picks in a minimalist PDF you can mail home.',
     travel: 'Flight + shared cab · ₹22k per person',
     link: 'Printable weekend brief',
+    season: 'Jun - Sep',
+    duration: '6 days',
     image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    city: 'Udaipur',
+    region: 'west',
+    budget: 'comfort',
+    mood: 'Lake walks · Culture notebooks',
+    blurb: 'Sunrise ghats, rooftop dinners, and palace sketches for architecture majors.',
+    travel: 'Flight or 3AC · ₹14k per person',
+    link: 'Printable walking circuit',
+    season: 'Nov - Feb',
+    duration: '4 days',
+    image: 'https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    city: 'Coorg',
+    region: 'south-hills',
+    budget: 'comfort',
+    mood: 'Plantation stays · Coffee runs',
+    blurb: 'Mist trails, bean-to-cup tastings, and night drives filled with indie playlists.',
+    travel: 'Night bus + cab · ₹15k per person',
+    link: 'Shared Airtable packing list',
+    season: 'Aug - Jan',
+    duration: '4 days',
+    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    city: 'Spiti Valley',
+    region: 'himalayan-circuit',
+    budget: 'invest',
+    mood: 'Road trip · Star maps',
+    blurb: 'High-altitude monasteries, astrophotography nights, and the longest playlist on repeat.',
+    travel: 'Flight + self-drive · ₹38k per person',
+    link: 'Notion expedition board',
+    season: 'Jun - Sep',
+    duration: '9 days',
+    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'
+  },
+  {
+    city: 'Andaman Islands',
+    region: 'islands',
+    budget: 'invest',
+    mood: 'Diving · Digital detox',
+    blurb: 'Kayaks, coral reef dives, and hostel potlucks near turquoise beaches.',
+    travel: 'Flight + ferry · ₹45k per person',
+    link: 'Dive-ready checklist',
+    season: 'Oct - Mar',
+    duration: '6 days',
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80&sat=-15'
   }
 ]
 
@@ -83,6 +139,16 @@ const travelNotes = [
     title: 'Weather-ready packing',
     excerpt: 'Layering tips and shared toiletries so backpacks stay light.',
     author: 'Atharva & Vaibhav'
+  },
+  {
+    title: 'Remote work Fridays',
+    excerpt: 'How we align lectures, assignments, and PTO so trips start earlier.',
+    author: 'Ananya'
+  },
+  {
+    title: 'Content capture plan',
+    excerpt: 'Shot list, gear, and editing workflow for reels and aftermovies.',
+    author: 'Vaidehi'
   }
 ]
 
@@ -91,6 +157,64 @@ const essentials = [
   { label: 'Offline maps', detail: 'Download routes before signal drops.' },
   { label: 'Cash buffer', detail: 'Keep ₹2k per person for local stalls.' },
   { label: 'Emergency loop', detail: 'Primary + backup numbers pinned in chat.' }
+]
+
+const budgetPlanner = [
+  {
+    tier: 'Save-friendly',
+    range: '₹6k – ₹10k',
+    travel: 'Sleeper bus · 3AC train',
+    stay: 'Hostels / student homestays',
+    extras: 'Street food, shared scooters',
+    tip: 'Block tickets 45 days ahead and pool SIM data.'
+  },
+  {
+    tier: 'Comfort',
+    range: '₹12k – ₹20k',
+    travel: 'Flights or premium buses',
+    stay: 'Boutique stays, capsule hotels',
+    extras: 'Work-friendly cafés, guided walks',
+    tip: 'Use student cards for lounge access & set bill-split reminders.'
+  },
+  {
+    tier: 'Dream trip',
+    range: '₹30k+',
+    travel: 'Flights + local driver',
+    stay: 'Heritage hotels, eco retreats',
+    extras: 'Permits, adventure sports, pro photo gear',
+    tip: 'Lock forex cards early and share a risk doc with guardians.'
+  }
+]
+
+const microAdventures = [
+  {
+    title: 'Moonlit Pawna hike',
+    location: 'Pune · ₹1.1k per head',
+    duration: 'Overnight',
+    detail: 'Sunset hike, lakeside tent, and a stargazing log sheet.',
+    badge: 'Night trek'
+  },
+  {
+    title: 'Metro food relay',
+    location: 'Mumbai · ₹900 total',
+    duration: '1 day',
+    detail: 'Hop every third station, sample budget eats, and score them in Notion.',
+    badge: 'City sprint'
+  },
+  {
+    title: 'Cycling + camping 101',
+    location: 'Panshet · ₹1.4k',
+    duration: 'Weekend',
+    detail: 'Borrow cycles, learn tarp pitching, and film b-roll for reels.',
+    badge: 'Skill swap'
+  },
+  {
+    title: 'Konkan workcation pod',
+    location: 'Vengurla · ₹5k',
+    duration: '4 days',
+    detail: 'Co-working shacks with strong Wi-Fi, mid-day swims, and quiet hours roster.',
+    badge: 'Remote friendly'
+  }
 ]
 
 const statCard = (stat) => `
@@ -104,7 +228,11 @@ const regionLabels = {
   'west-coast': 'West coast',
   north: 'North India',
   'south-interior': 'South interior',
-  northeast: 'North-East'
+  northeast: 'North-East',
+  west: 'Rajasthan belt',
+  'south-hills': 'Southern hills',
+  'himalayan-circuit': 'Himalayan circuit',
+  islands: 'Islands'
 }
 
 const budgetLabels = {
@@ -125,6 +253,7 @@ const destinationCard = (spot) => `
       <div class="destination-card__meta">
         <span>${spot.travel}</span>
         <span>${spot.link}</span>
+        <span class="meta-row">${spot.duration} · Best in ${spot.season}</span>
         <span class="tag-row">
           <span class="tag">${regionLabels[spot.region]}</span>
           <span class="tag tag--accent">${budgetLabels[spot.budget]}</span>
@@ -156,6 +285,30 @@ const essentialItem = (item) => `
   </li>
 `
 
+const budgetCard = (tier) => `
+  <article class="budget-card">
+    <div class="budget-card__header">
+      <p class="eyebrow">${tier.tier}</p>
+      <h3>${tier.range}</h3>
+    </div>
+    <ul>
+      <li><strong>Travel</strong><span>${tier.travel}</span></li>
+      <li><strong>Stay</strong><span>${tier.stay}</span></li>
+      <li><strong>Extras</strong><span>${tier.extras}</span></li>
+    </ul>
+    <p class="budget-card__tip">${tier.tip}</p>
+  </article>
+`
+
+const adventureCard = (trip) => `
+  <article class="micro-card">
+    <p class="pill">${trip.badge}</p>
+    <h3>${trip.title}</h3>
+    <p class="micro-card__meta">${trip.location} · ${trip.duration}</p>
+    <p>${trip.detail}</p>
+  </article>
+`
+
 const app = document.querySelector('#app')
 
 app.innerHTML = `
@@ -175,10 +328,10 @@ app.innerHTML = `
       <div class="hero__content container">
         <div class="hero__text">
           <p class="eyebrow">Mini project · 2025</p>
-          <h1>Simple, shareable travel plans for our next break.</h1>
+          <h1>Smart recommendations by budget, location, and mood.</h1>
           <p>
-            One clean view with destinations we trust, budgets that make sense, and checklists that keep friends and
-            parents in sync.
+            Toggle filters, study real costs, and grab micro-adventures from one page before you pitch the plan to
+            parents or project teammates.
           </p>
           <div class="hero__actions">
             <button class="btn btn--primary" id="browseDestinations">Browse escapes</button>
@@ -207,9 +360,9 @@ app.innerHTML = `
           <div>
             <p class="eyebrow">Destinations</p>
             <h2>Only the plans we keep reusing.</h2>
-            <p>Four cards, zero clutter.</p>
+            <p>Dial in by coast, hills, islands, or wallet size.</p>
           </div>
-          <p class="result-pill" data-result-count>4 recommendations</p>
+          <p class="result-pill" data-result-count></p>
         </div>
         <form class="filter-bar container" data-filters>
           <label>
@@ -220,6 +373,10 @@ app.innerHTML = `
               <option value="north">North India</option>
               <option value="south-interior">South interior</option>
               <option value="northeast">North-East</option>
+              <option value="west">Rajasthan belt</option>
+              <option value="south-hills">Southern hills</option>
+              <option value="himalayan-circuit">Himalayan circuit</option>
+              <option value="islands">Islands</option>
             </select>
           </label>
           <label>
@@ -233,6 +390,27 @@ app.innerHTML = `
           </label>
         </form>
         <div class="card-grid container" data-destination-grid></div>
+      </section>
+
+      <section class="section section--outline" id="budgets">
+        <div class="section__header container">
+          <div>
+            <p class="eyebrow">Budget planner</p>
+            <h2>Anchor your spends before asking the group chat.</h2>
+            <p>Each tier lists travel, stay, extras, and a pro tip.</p>
+          </div>
+        </div>
+        <div class="budget-grid container" data-budget-grid></div>
+      </section>
+
+      <section class="section" id="micro">
+        <div class="section__header container">
+          <div>
+            <p class="eyebrow">Micro adventures</p>
+            <h2>Quick wins when you only have 24–72 hours.</h2>
+          </div>
+        </div>
+        <div class="micro-grid container" data-micro-grid></div>
       </section>
 
       <section class="section section--outline" id="planner">
@@ -283,6 +461,8 @@ app.innerHTML = `
 const destinationGrid = document.querySelector('[data-destination-grid]')
 const resultCount = document.querySelector('[data-result-count]')
 const filtersForm = document.querySelector('[data-filters]')
+const budgetGrid = document.querySelector('[data-budget-grid]')
+const microGrid = document.querySelector('[data-micro-grid]')
 
 const renderDestinations = (collection) => {
   if (!destinationGrid) return
@@ -324,6 +504,14 @@ const applyFilters = () => {
 filtersForm?.addEventListener('change', applyFilters)
 
 renderDestinations(destinations)
+
+if (budgetGrid) {
+  budgetGrid.innerHTML = budgetPlanner.map(budgetCard).join('')
+}
+
+if (microGrid) {
+  microGrid.innerHTML = microAdventures.map(adventureCard).join('')
+}
 
 const timelineShell = document.querySelector('[data-timeline]')
 if (timelineShell) {
