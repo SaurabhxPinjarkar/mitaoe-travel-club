@@ -9,6 +9,8 @@ const heroStats = [
 const destinations = [
   {
     city: 'Goa',
+    region: 'west-coast',
+    budget: 'save',
     mood: 'Beach hostels · Scooty loops',
     blurb: 'Two-night plan with sunrise cycles and sunset cafés that still fit a student budget.',
     travel: 'Sleeper bus · ₹9k per person',
@@ -17,6 +19,8 @@ const destinations = [
   },
   {
     city: 'Manali',
+    region: 'north',
+    budget: 'comfort',
     mood: 'Cafe hopping · Easy treks',
     blurb: 'Slow mornings, digital-detox afternoons, and a checklist that convinces parents easily.',
     travel: 'Train + Volvo · ₹12k per person',
@@ -25,6 +29,8 @@ const destinations = [
   },
   {
     city: 'Hampi',
+    region: 'south-interior',
+    budget: 'save',
     mood: 'Sketch walks · Heritage',
     blurb: 'Golden-hour ruin sketches, coracle rides, and ₹70 thalis after long cycling loops.',
     travel: 'Overnight bus · ₹7k per person',
@@ -33,6 +39,8 @@ const destinations = [
   },
   {
     city: 'Meghalaya',
+    region: 'northeast',
+    budget: 'invest',
     mood: 'Root bridges · Rain journaling',
     blurb: 'Monsoon hikes, Dawki kayaks, and clean-stay picks in a minimalist PDF you can mail home.',
     travel: 'Flight + shared cab · ₹22k per person',
@@ -92,6 +100,19 @@ const statCard = (stat) => `
   </article>
 `
 
+const regionLabels = {
+  'west-coast': 'West coast',
+  north: 'North India',
+  'south-interior': 'South interior',
+  northeast: 'North-East'
+}
+
+const budgetLabels = {
+  save: 'Save-friendly',
+  comfort: 'Comfort',
+  invest: 'Dream trip'
+}
+
 const destinationCard = (spot) => `
   <article class="destination-card">
     <img src="${spot.image}" alt="${spot.city}" loading="lazy" />
@@ -104,6 +125,10 @@ const destinationCard = (spot) => `
       <div class="destination-card__meta">
         <span>${spot.travel}</span>
         <span>${spot.link}</span>
+        <span class="tag-row">
+          <span class="tag">${regionLabels[spot.region]}</span>
+          <span class="tag tag--accent">${budgetLabels[spot.budget]}</span>
+        </span>
       </div>
     </div>
   </article>
@@ -184,7 +209,29 @@ app.innerHTML = `
             <h2>Only the plans we keep reusing.</h2>
             <p>Four cards, zero clutter.</p>
           </div>
+          <p class="result-pill" data-result-count>4 recommendations</p>
         </div>
+        <form class="filter-bar container" data-filters>
+          <label>
+            Location
+            <select name="region">
+              <option value="all">Anywhere</option>
+              <option value="west-coast">West coast</option>
+              <option value="north">North India</option>
+              <option value="south-interior">South interior</option>
+              <option value="northeast">North-East</option>
+            </select>
+          </label>
+          <label>
+            Budget
+            <select name="budget">
+              <option value="any">Any budget</option>
+              <option value="save">Save-friendly</option>
+              <option value="comfort">Comfort</option>
+              <option value="invest">Dream trip</option>
+            </select>
+          </label>
+        </form>
         <div class="card-grid container" data-destination-grid></div>
       </section>
 
@@ -234,9 +281,49 @@ app.innerHTML = `
 `
 
 const destinationGrid = document.querySelector('[data-destination-grid]')
-if (destinationGrid) {
-  destinationGrid.innerHTML = destinations.map(destinationCard).join('')
+const resultCount = document.querySelector('[data-result-count]')
+const filtersForm = document.querySelector('[data-filters]')
+
+const renderDestinations = (collection) => {
+  if (!destinationGrid) return
+  if (collection.length === 0) {
+    destinationGrid.innerHTML = `
+      <article class="empty-state">
+        <h3>No trips match those filters yet.</h3>
+        <p>Try widening the budget or picking a different region.</p>
+      </article>
+    `
+  } else {
+    destinationGrid.innerHTML = collection.map(destinationCard).join('')
+  }
+
+  if (resultCount) {
+    const label = collection.length === 1 ? 'recommendation' : 'recommendations'
+    resultCount.textContent = `${collection.length} ${label}`
+  }
 }
+
+const applyFilters = () => {
+  if (!filtersForm) {
+    renderDestinations(destinations)
+    return
+  }
+  const formData = new FormData(filtersForm)
+  const region = formData.get('region') || 'all'
+  const budget = formData.get('budget') || 'any'
+
+  const filtered = destinations.filter((spot) => {
+    const regionMatch = region === 'all' ? true : spot.region === region
+    const budgetMatch = budget === 'any' ? true : spot.budget === budget
+    return regionMatch && budgetMatch
+  })
+
+  renderDestinations(filtered)
+}
+
+filtersForm?.addEventListener('change', applyFilters)
+
+renderDestinations(destinations)
 
 const timelineShell = document.querySelector('[data-timeline]')
 if (timelineShell) {
